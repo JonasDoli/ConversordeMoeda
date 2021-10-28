@@ -27,7 +27,7 @@
         tools:srcCompat="@drawable/back_resultado" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivLayoutcenter"
         android:layout_width="336dp"
         android:layout_height="231dp"
         android:layout_marginTop="24dp"
@@ -37,10 +37,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLayouttop" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btConverter"
         android:layout_width="274dp"
         android:layout_height="50dp"
 
@@ -55,11 +55,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivLayouttop"
         android:layout_width="339dp"
 
         android:layout_height="140dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/back_valorcalculado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,34 +67,34 @@
 
     <RadioGroup
         android:id="@+id/ver"
-        android:layout_width="323dp"
-        android:layout_height="158dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_width="318dp"
+        android:layout_height="88dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btConverter"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        android:orientation="horizontal"
-        android:gravity="center">
+        app:layout_constraintTop_toBottomOf="@+id/ivLayoutcenter">
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/rbUsd"
             android:layout_width="wrap_content"
-            android:layout_marginRight="8dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:text="USD" />
 
         <RadioButton
-            android:id="@+id/radioButton11"
+            android:id="@+id/rbEur"
             android:layout_width="wrap_content"
-            android:layout_marginRight="8dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:text="EUR" />
 
         <RadioButton
-            android:id="@+id/radioButton12"
-            android:layout_marginRight="8dp"
+            android:id="@+id/rbBtc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:text="BTC" />
 
     </RadioGroup>
@@ -105,6 +105,141 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
+
+    <EditText
+        android:id="@+id/etValor"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/btConverter"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ver" />
+
+    <TextView
+        android:id="@+id/tvValorHoje"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valores Hoje"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivLayoutcenter"
+        app:layout_constraintStart_toStartOf="@+id/ivLayoutcenter"
+        app:layout_constraintTop_toTopOf="@+id/ivLayoutcenter" />
+
+    <TextView
+        android:id="@+id/tvValorDia"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="344.817 "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorHoje" />
+
+    <ImageView
+        android:id="@+id/ivUp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        app:layout_constraintStart_toStartOf="@+id/ivLayoutcenter"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorDia"
+        app:srcCompat="@drawable/icone_up_verde" />
+
+    <ImageView
+        android:id="@+id/ivDow"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/ivLayoutcenter"
+        app:layout_constraintTop_toBottomOf="@+id/ivUp"
+        app:srcCompat="@drawable/icone_dow_vermelho" />
+
+    <TextView
+        android:id="@+id/tvValorUp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="344.817"
+        app:layout_constraintStart_toEndOf="@+id/ivUp"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorDia" />
+
+    <TextView
+        android:id="@+id/tvValorDow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        android:text="344.535
+"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/ivDow"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorUp" />
+
+    <TextView
+        android:id="@+id/tvValoConvertido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="344.791,82 BRL"
+        android:layout_marginTop="8dp"
+
+
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ivLayouttop"
+        app:layout_constraintStart_toStartOf="@+id/ivLayouttop"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorCabe" />
+
+    <TextView
+        android:id="@+id/tvValorCabe"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor Convertido"
+        app:layout_constraintEnd_toEndOf="@+id/ivLayouttop"
+        app:layout_constraintStart_toStartOf="@+id/ivLayouttop"
+        app:layout_constraintTop_toTopOf="@+id/ivLayouttop" />
+
+    <TextView
+        android:id="@+id/tvIgual"
+        android:layout_width="15dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="1dp"
+        android:text="="
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivLayouttop"
+        app:layout_constraintStart_toStartOf="@+id/ivLayouttop"
+        app:layout_constraintTop_toBottomOf="@+id/tvValoConvertido" />
+
+    <TextView
+        android:id="@+id/tvModelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="1 BTC"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivLayouttop"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/ivLayouttop"
+        app:layout_constraintTop_toBottomOf="@+id/tvIgual" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
