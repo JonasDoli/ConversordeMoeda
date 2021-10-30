@@ -30,7 +30,7 @@
         android:id="@+id/ivLayoutcenter"
         android:layout_width="336dp"
         android:layout_height="231dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
 
 
         android:background="@drawable/back_valorcalculado"
@@ -79,6 +79,7 @@
 
         <RadioButton
             android:id="@+id/rbUsd"
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
@@ -132,26 +133,14 @@
         app:layout_constraintStart_toStartOf="@+id/ivLayoutcenter"
         app:layout_constraintTop_toTopOf="@+id/ivLayoutcenter" />
 
-    <TextView
-        android:id="@+id/tvValorDia"
-        android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="344.817 "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvValorHoje" />
-
     <ImageView
         android:id="@+id/ivUp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="30dp"
         android:layout_width="38dp"
         android:layout_height="37dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="@+id/ivLayoutcenter"
-        app:layout_constraintTop_toBottomOf="@+id/tvValorDia"
+        app:layout_constraintTop_toBottomOf="@+id/tvValorHoje"
         app:srcCompat="@drawable/icone_up_verde" />
 
     <ImageView
@@ -166,28 +155,27 @@
 
     <TextView
         android:id="@+id/tvValorUp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="15dp"
-        android:textColor="@color/white"
-        android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="344.817"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/ivUp"
-        app:layout_constraintTop_toBottomOf="@+id/tvValorDia" />
+        app:layout_constraintTop_toTopOf="@+id/ivUp" />
 
     <TextView
         android:id="@+id/tvValorDow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:text="344.535
-"
+        android:layout_marginTop="8dp"
+        android:text="344.535"
+        android:layout_marginLeft="10dp"
         android:textColor="@color/white"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/ivDow"
-        app:layout_constraintTop_toBottomOf="@+id/tvValorUp" />
+        app:layout_constraintTop_toTopOf="@+id/ivDow" />
 
     <TextView
         android:id="@+id/tvValoConvertido"
@@ -241,6 +229,72 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/ivLayouttop"
         app:layout_constraintTop_toBottomOf="@+id/tvIgual" />
+
+    <TextView
+        android:id="@+id/tvVariacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="Variação"
+
+        android:textSize="15sp"
+        android:layout_marginLeft="18dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/ivUp"
+        app:layout_constraintStart_toStartOf="@+id/ivUp" />
+
+    <ImageView
+        android:id="@+id/ivCompra"
+        android:layout_width="49dp"
+        android:layout_height="38dp"
+        android:layout_marginLeft="150dp"
+        app:layout_constraintStart_toEndOf="@+id/ivUp"
+        app:layout_constraintTop_toTopOf="@+id/ivUp"
+        app:srcCompat="@drawable/sacar_dinheiro_50" />
+
+    <ImageView
+        android:id="@+id/ivVenda"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="155dp"
+        app:layout_constraintStart_toEndOf="@+id/ivDow"
+        app:layout_constraintTop_toTopOf="@+id/ivDow"
+        app:srcCompat="@drawable/_cash_app_48" />
+
+    <TextView
+        android:id="@+id/tvCompra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:text="5.636"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/ivCompra"
+        app:layout_constraintTop_toTopOf="@+id/ivCompra" />
+
+    <TextView
+        android:id="@+id/tvVenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="5.636"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/ivVenda"
+        app:layout_constraintTop_toTopOf="@+id/ivVenda" />
+
+    <TextView
+        android:id="@+id/tvValorComer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor Comercial"
+        android:layout_marginLeft="18dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/ivCompra"
+        app:layout_constraintTop_toTopOf="@+id/tvVariacao" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
