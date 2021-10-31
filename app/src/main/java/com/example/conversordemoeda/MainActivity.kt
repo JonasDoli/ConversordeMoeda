@@ -3,6 +3,7 @@ package com.example.conversordemoeda
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     fun converter(view: android.view.View) {
         imputvalore()
+
 
     }
 
@@ -43,17 +45,18 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+        var valor = etValor.text.toString()
         when (checar) {
-            R.id.rbUsd -> tvModelo.text = "1 Dolar"
-            R.id.rbBtc -> tvModelo.text = "1 Bitcoin"
-            R.id.rbEur -> tvModelo.text = "1 Euro"
+            R.id.rbUsd -> tvModelo.text = "$valor Dolar"
+            R.id.rbBtc -> tvModelo.text = "$valor Bitcoin"
+            R.id.rbEur -> tvModelo.text = "$valor Euro"
         }
 
 
         var imput = etValor.text.toString()
         if (imput.isEmpty())
             return
-
+        progreBar.visibility = View.VISIBLE
 
         Thread {
             var url = URL(" https://economia.awesomeapi.com.br/last/$resultado")
@@ -75,13 +78,14 @@ class MainActivity : AppCompatActivity() {
                         var compra = usd.getString("bid")
                         var digitado = etValor.text.toString()
                         var calc = venda.toFloat() * digitado.toFloat()
+                        var form = " R$ %.2f".format(calc)
 
                         tvValorUp.text = alta.toString()
                         tvValorDow.text = baixa.toString()
                         tvVenda.text = venda.toString()
                         tvCompra.text = compra.toString()
                         resultado = digitado
-                        tvValoConvertido.text = calc.toString()
+                        tvValoConvertido.text = form
                     }
                     if (checar == R.id.rbEur) {
 
@@ -91,14 +95,16 @@ class MainActivity : AppCompatActivity() {
                         var venda = usd.getString("ask")
                         var compra = usd.getString("bid")
                         var digitado = etValor.text.toString()
-                        var calc = venda.toFloat() * digitado.toFloat()
+                        var calc = (venda.toFloat() * digitado.toFloat())
+                        var form = " R$ %.2f".format(calc)
+
 
                         tvValorUp.text = alta.toString()
                         tvValorDow.text = baixa.toString()
                         tvVenda.text = venda.toString()
                         tvCompra.text = compra.toString()
                         resultado = digitado
-                        tvValoConvertido.text = calc.toString()
+                        tvValoConvertido.text = form.toString()
                     }
                     if (checar == R.id.rbBtc) {
 
@@ -109,15 +115,16 @@ class MainActivity : AppCompatActivity() {
                         var compra = usd.getString("bid")
                         var digitado = etValor.text.toString()
                         var calc = venda.toFloat() * digitado.toFloat()
+                        var form = "R$" + " " + calc + ",00"
 
                         tvValorUp.text = alta.toString()
                         tvValorDow.text = baixa.toString()
                         tvVenda.text = venda.toString()
                         tvCompra.text = compra.toString()
                         resultado = digitado
-                        tvValoConvertido.text = calc.toString()
+                        tvValoConvertido.text = form
                     }
-
+                    progreBar.visibility = View.GONE
 
                 }
 
